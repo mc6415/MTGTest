@@ -1,0 +1,18 @@
+﻿[
+  {
+    "outputFile": "Content/test.css",
+    "inputFile": "Content/test.scss"
+  },
+  {
+    "outputFile": "Content/site.css",
+    "inputFile": "Content/site.scss"
+  },
+  {
+    "outputFile": "Content/bootstrap-flat.css",
+    "inputFile": "Content/bootstrap-flat.scss"
+  },
+  {
+    "outputFile": "Content/bootstrap-flat-extras.css",
+    "inputFile": "Content/bootstrap-flat-extras.scss"
+  }
+]

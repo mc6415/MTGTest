@@ -1,0 +1,12 @@
+﻿@{
+    Layout = null;
+}
+@model Exception
+
+<div>
+    @ViewBag.ExceptionStackTrace
+</div>
+
+<h4>Exception Type:</h4> @Model.GetType().Name <br/>
+<h4>Exception Message:</h4> @Model.Message <br/>
+<h4>Stack Trace:</h4> @Model.StackTrace
