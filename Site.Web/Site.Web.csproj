@@ -163,6 +163,7 @@
     <Compile Include="Models\ContentTypes\CustomTypeProvider.cs" />
     <Compile Include="Models\ContentTypes\IndividualPage.cs" />
     <Compile Include="Models\ContentTypes\Home.cs" />
+    <Compile Include="Models\Views\EventList.cs" />
     <Compile Include="Models\Views\HomeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -195,6 +196,7 @@
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -435,6 +437,8 @@
     <Content Include="stylesheets\bootstrap\mixins\_alerts.scss" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_NavbarCarouselItem.cshtml" />
+    <Content Include="Views\Shared\_NavbarList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

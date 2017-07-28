@@ -1,0 +1,11 @@
+﻿@model Site.Web.Models.Views.EventList
+
+<li class="col-sm-3">
+    <ul>
+        <li class="dropdown-header">@Model.Title</li>
+        @foreach (var link in Model.Events)
+            {
+            <li>@Html.Raw(link)</li>
+        }
+    </ul>
+</li>

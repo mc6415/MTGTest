@@ -9,6 +9,7 @@ using Site.Common.Site;
 using Site.Web.ContentLinkUrlResolver;
 using Site.Web.Models.ContentTypes;
 using HtmlAgilityPack;
+using Site.Web.Models.Views;
 
 namespace Site.Web.Controllers
 {
@@ -16,7 +17,7 @@ namespace Site.Web.Controllers
     {
         protected readonly DeliveryClient Client = new DeliveryClient(Config.KenticoCloud.ProjectId);
 
-        public string MajorEventsXPath = "//div[@class='page']/div/table/tr/td[2]/table[1]/tr/td[1]";
+        public string MajorEventsXPath = "//div[@class='page']/div/table/tr/td[2]/table[1]/tr/td[1]/a";
 
         public ControllerBase()
         {
@@ -24,23 +25,31 @@ namespace Site.Web.Controllers
             Client.ContentLinkUrlResolver = new CustomContentLinkUrlResolver();
         }
 
-        public void GetStandardEvents()
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            ViewBag.StandardEvents = GetEvents("http://mtgtop8.com/format?f=ST", "Standard Events");
+            ViewBag.ModernEvents = GetEvents("http://mtgtop8.com/format?f=MO", "Modern Events");
+
+            base.OnActionExecuting(filterContext);
+        }
+
+        public EventList GetEvents(string url, string title)
         {
             HtmlWeb web = new HtmlWeb();
-            HtmlDocument doc = web.Load("http://mtgtop8.com/format?f=ST");
+            HtmlDocument doc = web.Load(url);
 
-            List<string> eventNames = new List<string>();
+            EventList eventList = new EventList();
+            eventList.Title = title;
+            eventList.Events = new List<string>();
 
             var events = doc.DocumentNode.SelectNodes(MajorEventsXPath).ToList();
 
             foreach (var ev in events)
             {
-                eventNames.Add(ev.InnerText);
+                eventList.Events.Add(ev.OuterHtml);
             }
-        }
 
-        public void GetModernEvents()
-        {
+            return eventList;
         }
 
         protected override void OnException(ExceptionContext filterContext)

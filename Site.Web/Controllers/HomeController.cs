@@ -27,8 +27,6 @@ namespace Site.Web.Controllers
             //    Summary = response.Item.Summary
             //};
 
-            GetStandardEvents();
-
             return View();
         }
     }
