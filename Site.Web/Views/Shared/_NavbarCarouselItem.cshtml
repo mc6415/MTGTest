@@ -1,12 +1,14 @@
-﻿@model bool
+﻿@using Site.Web.Extensions
+@model Site.Web.Models.ContentTypes.FeaturedDeck
 
-@{
-    var className = Model ? "item active" : "item";
-}
-<div class="@className">
-    <a href="#"><img src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 1"></a>
-    @*<h4><small>Summer dress floral prints</small></h4>
-        <button class="btn btn-primary" type="button">49,99 €</button>
-        <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>*@
+<div class="@ViewBag.CarouselItemClass">
+    <a href="#"><img src="@PageExtensions.GetCardImageUrl(Model.MultiverseId)" class="img-responsive" alt="product 1"></a>
+    <h4>
+        <small>
+            @Model.Title
+        </small>
+    </h4>
+    <button class="btn btn-primary" type="button">@Model.CardPrice</button>
+    <a href="@Model.MagicMadhouseUrl" class="btn btn-default" style="margin:0" target="_blank"><span class="glyphicon glyphicon-gbp"></span> Buy From Magic Madhouse</a>
 </div>
 <!-- End Item -->

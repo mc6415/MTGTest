@@ -1,4 +1,12 @@
-﻿<script type="text/javascript">
+﻿@using KenticoCloud.Delivery
+@using Site.Web.Extensions
+@using Site.Web.Models.ContentTypes
+
+@{
+    string isOnline = (bool)ViewBag.IsStreaming ? "Online Now!" : "Offline right now :(";
+}
+
+<script type="text/javascript">
     jQuery(document).on('click', '.mega-dropdown', function (e) {
         e.stopPropagation()
     })
@@ -22,20 +30,26 @@
                     <ul class="dropdown-menu mega-dropdown-menu row">
                         <li class="col-sm-3">
                             <ul>
-                                <li class="dropdown-header">Featured Decks</li>
+                                <li class="dropdown-header">Featured Cards</li>
                                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
-                                        @for (int i = 0; i < 3; i++)
+                                        @if (Session["FeaturedDecks"] != null)
                                         {
-                                            bool active = i == 0 ? true : false;
-                                            Html.RenderPartial("_NavbarCarouselItem", active);
+                                            List<FeaturedDeck> decks = (List<FeaturedDeck>)Session["FeaturedDecks"];
+
+                                            for (int i = 0; i < decks.Count; i++)
+                                            {
+                                                ViewBag.CarouselItemClass = i == 0 ? "item active" : "item";
+
+                                                Html.RenderPartial("_NavbarCarouselItem", decks[i]);
+                                            }
                                         }
                                     </div>
                                     <!-- End Carousel Inner -->
                                 </div>
                                 <!-- /.carousel -->
                                 <li class="divider"></li>
-                                <li><a href="#">View Previous Decks <span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+                                <li><a href="#">View Previous Cards <span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
                             </ul>
                         </li>
                         @{Html.RenderPartial("_NavbarList", (Site.Web.Models.Views.EventList)ViewBag.StandardEvents);}
@@ -43,12 +57,12 @@
                         <li class="col-sm-3">
                             <ul>
                                 <li class="dropdown-header">Articles</li>
-                                <li><a href="#">Deck Guides</a></li>
+                                <li><a href="#"><img src="https://png.icons8.com/twitch/nolan/64" title="Twitch" width="64" height="64"> @isOnline</a></li>
                                 <li><a href="#">Deck Videos</a></li>
                                 <li><a href="#">Other Games</a></li>
                                 <li class="divider"></li>
                                 <li class="dropdown-header">Newsletter</li>
-                                <form class="form" role="form">
+                                <form class="form" role="form" action="">
                                     <div class="form-group">
                                         <label class="sr-only" for="email">Email address</label>
                                         <input type="email" class="form-control" id="email" placeholder="Enter email">

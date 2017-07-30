@@ -144,8 +144,14 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="TwitchLib, Version=1.5.4.23966, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TwitchLib.1.5.4\lib\net45\TwitchLib.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp, Version=1.0.2.32519, Culture=neutral, PublicKeyToken=5660b08a1845a91e, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebSocketSharp-NonPreRelease.1.0.0\lib\net35\websocket-sharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -157,10 +163,13 @@
     <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndividualPageController.cs" />
+    <Compile Include="Extensions\PageExtensions.cs" />
+    <Compile Include="Filters\KenticoCacheFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ContentTypes\CustomTypeProvider.cs" />
+    <Compile Include="Models\ContentTypes\FeaturedDeck.cs" />
     <Compile Include="Models\ContentTypes\IndividualPage.cs" />
     <Compile Include="Models\ContentTypes\Home.cs" />
     <Compile Include="Models\Views\EventList.cs" />

@@ -22,6 +22,7 @@
             {
                 public const string Home = "home";
                 public const string IndividualPage = "project";
+                public const string FeaturedDeck = "featured_deck";
             }
         }
     }
