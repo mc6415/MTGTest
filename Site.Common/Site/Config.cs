@@ -38,6 +38,7 @@ namespace Site.Common.Site
         {
             #region Properties
 
+            public static string ChannelLink => ConfigurationManager.AppSettings["Twitch.ChannelLink"];
             public static string ClientId => ConfigurationManager.AppSettings["Twitch.ClientId"];
             public static string UserId => ConfigurationManager.AppSettings["Twitch.UserId"];
 

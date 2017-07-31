@@ -168,12 +168,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ContentTypes\Article.cs" />
     <Compile Include="Models\ContentTypes\CustomTypeProvider.cs" />
     <Compile Include="Models\ContentTypes\FeaturedDeck.cs" />
     <Compile Include="Models\ContentTypes\IndividualPage.cs" />
     <Compile Include="Models\ContentTypes\Home.cs" />
     <Compile Include="Models\Views\EventList.cs" />
     <Compile Include="Models\Views\HomeViewModel.cs" />
+    <Compile Include="Models\Views\NavBarList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -321,6 +323,7 @@
     <Content Include="fonts\codropsicons\codropsicons.eot" />
     <Content Include="fonts\codropsicons\codropsicons.ttf" />
     <Content Include="fonts\codropsicons\codropsicons.woff" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="javascripts\bootstrap-sprockets.js" />
     <Content Include="javascripts\bootstrap.js" />
@@ -448,6 +451,7 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_NavbarCarouselItem.cshtml" />
     <Content Include="Views\Shared\_NavbarList.cshtml" />
+    <Content Include="Views\Home\_ArticleListItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

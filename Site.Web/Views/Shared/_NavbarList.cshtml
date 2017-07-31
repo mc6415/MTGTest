@@ -1,11 +1,15 @@
-﻿@model Site.Web.Models.Views.EventList
+﻿@model Site.Web.Models.Views.NavBarList
 
 <li class="col-sm-3">
     <ul>
         <li class="dropdown-header">@Model.Title</li>
-        @foreach (var link in Model.Events)
+        @foreach (var category in Model.ListItems)
             {
-            <li>@Html.Raw(link)</li>
+            <li>
+                <a href="/Category/@category.Elements.name.value">
+                    @category.Elements.name.value
+                </a>
+            </li>
         }
     </ul>
 </li>

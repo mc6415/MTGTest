@@ -1,6 +1,9 @@
 ﻿using Site.Web.Filters;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using KenticoCloud.Delivery;
+using Site.Web.Models.ContentTypes;
+using Site.Common.Site;
 
 namespace Site.Web.Controllers
 {
@@ -12,10 +15,9 @@ namespace Site.Web.Controllers
         [KenticoCacheFilter]
         public async Task<ActionResult> Index()
         {
-            //DeliveryItemResponse<Home> response = await Client.GetItemAsync<Home>(SiteConstants.KenticoCloud.ContentType.Home);
-            await GetFeaturedDecks();
+            DeliveryItemResponse<Home> response = await Client.GetItemAsync<Home>(SiteConstants.KenticoCloud.ContentType.Home);
             await GetTwitchStatus();
-            return View();
+            return View(response.Item);
         }
 
         #endregion

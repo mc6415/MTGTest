@@ -1,7 +1,14 @@
-﻿@model Site.Web.Models.ContentTypes.Home
+﻿@using Site.Web.Models.ContentTypes
+@model Home
 @{
     ViewBag.Title = "Home Page";
 }
 
-<div class="container">
+<div class="container-fluid">
+    <div class="home-articles">
+        @foreach (Article article in Model.Articles)
+        {
+            Html.RenderPartial("_ArticleListItem", article);
+        }
+    </div>
 </div>

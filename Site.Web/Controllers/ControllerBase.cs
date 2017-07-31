@@ -59,14 +59,20 @@ namespace Site.Web.Controllers
         }
 
         [KenticoCacheFilter]
-        public async Task<List<FeaturedDeck>> GetFeaturedDecks()
+        public async Task<NavBarList> GetNavbarCategories()
         {
             DeliveryItemListingResponse response = await Client.GetItemsAsync(
-               new EqualsFilter("system.type", SiteConstants.KenticoCloud.ContentType.FeaturedDeck),
-               new AnyFilter("elements.is_active", "Yes")
+                new EqualsFilter("system.type", SiteConstants.KenticoCloud.ContentType.Category),
+                new AnyFilter("elements.in_navbar", "yes")
             );
-            Session["FeaturedDecks"] = response.Items.Select(x => new FeaturedDeck(x)).ToList();
-            return response.Items.Select(x => new FeaturedDeck(x)).ToList();
+
+            NavBarList listItems = new NavBarList()
+            {
+                Title = "Categories",
+                ListItems = response.Items.ToList()
+            };
+
+            return listItems;
         }
 
         public async Task<bool> GetTwitchStatus()
@@ -80,9 +86,10 @@ namespace Site.Web.Controllers
 
         protected override async void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            ViewBag.StandardEvents = GetEvents("http://mtgtop8.com/format?f=ST", "Standard Events");
-            ViewBag.ModernEvents = GetEvents("http://mtgtop8.com/format?f=MO", "Modern Events");
+            //ViewBag.StandardEvents = GetEvents("http://mtgtop8.com/format?f=ST", "Standard Events");
+            //ViewBag.ModernEvents = GetEvents("http://mtgtop8.com/format?f=MO", "Modern Events");
             ViewBag.IsStreaming = await GetTwitchStatus();
+            ViewBag.NavbarCategories = await GetNavbarCategories();
 
             base.OnActionExecuting(filterContext);
         }
