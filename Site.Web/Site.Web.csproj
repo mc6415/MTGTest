@@ -82,10 +82,22 @@
     <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Azure.Search, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Azure.Search.4.0.1-preview\lib\net452\Microsoft.Azure.Search.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.2.3.7\lib\net452\Microsoft.Rest.ClientRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime.Azure, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.Azure.3.3.6\lib\net452\Microsoft.Rest.ClientRuntime.Azure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=7.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Spatial.7.2.0\lib\portable-net45+win8+wpa81\Microsoft.Spatial.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -162,17 +174,13 @@
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\IndividualPageController.cs" />
     <Compile Include="Extensions\PageExtensions.cs" />
     <Compile Include="Filters\KenticoCacheFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ContentTypes\Article.cs" />
+    <Compile Include="Models\ContentTypes\Card.cs" />
     <Compile Include="Models\ContentTypes\CustomTypeProvider.cs" />
-    <Compile Include="Models\ContentTypes\FeaturedDeck.cs" />
-    <Compile Include="Models\ContentTypes\IndividualPage.cs" />
-    <Compile Include="Models\ContentTypes\Home.cs" />
     <Compile Include="Models\Views\EventList.cs" />
     <Compile Include="Models\Views\HomeViewModel.cs" />
     <Compile Include="Models\Views\NavBarList.cs" />
@@ -323,6 +331,7 @@
     <Content Include="fonts\codropsicons\codropsicons.eot" />
     <Content Include="fonts\codropsicons\codropsicons.ttf" />
     <Content Include="fonts\codropsicons\codropsicons.woff" />
+    <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="javascripts\bootstrap-sprockets.js" />
@@ -449,9 +458,6 @@
     <Content Include="stylesheets\bootstrap\mixins\_alerts.scss" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
-    <Content Include="Views\Shared\_NavbarCarouselItem.cshtml" />
-    <Content Include="Views\Shared\_NavbarList.cshtml" />
-    <Content Include="Views\Home\_ArticleListItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -467,9 +473,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Errors\NotFound.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\IndividualPage\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Errors\Exception.cshtml" />

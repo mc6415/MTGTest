@@ -15,9 +15,7 @@ namespace Site.Web.Controllers
         [KenticoCacheFilter]
         public async Task<ActionResult> Index()
         {
-            DeliveryItemResponse<Home> response = await Client.GetItemAsync<Home>(SiteConstants.KenticoCloud.ContentType.Home);
-            await GetTwitchStatus();
-            return View(response.Item);
+            return View();
         }
 
         #endregion
