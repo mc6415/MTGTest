@@ -208,19 +208,11 @@
       <DependentUpon>site.css</DependentUpon>
     </Content>
     <Content Include="favicon.ico" />
-    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
-    <Content Include="fonts\codropsicons\codropsicons.svg" />
-    <Content Include="fonts\codropsicons\license.txt" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
@@ -302,10 +294,6 @@
     <Content Include="Content\bootstrap\mixins\_background-variant.scss" />
     <Content Include="Content\bootstrap\mixins\_alerts.scss" />
     <Content Include="images\.keep" />
-    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-flat\_variables.scss" />
     <Content Include="Content\bootstrap-flat\_testimonials.scss" />
     <Content Include="Content\bootstrap-flat\_tabs.scss" />
@@ -327,10 +315,6 @@
     <Content Include="Content\bootstrap-flat\mixins\_border-radius.scss" />
     <Content Include="Content\bootstrap-flat.scss" />
     <Content Include="Content\bootstrap-flat-extras.scss" />
-    <Content Include="fonts\codropsicons\.DS_Store" />
-    <Content Include="fonts\codropsicons\codropsicons.eot" />
-    <Content Include="fonts\codropsicons\codropsicons.ttf" />
-    <Content Include="fonts\codropsicons\codropsicons.woff" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
